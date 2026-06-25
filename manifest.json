@@ -1,0 +1,26 @@
+{
+  "name": "Vakantie Ommen 2025",
+  "short_name": "Vakantie",
+  "description": "Dagprogramma voor de zomervakantie in Ommen, Vechtdal",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#FFF8E7",
+  "theme_color": "#F9E04B",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["travel", "lifestyle"],
+  "lang": "nl"
+}

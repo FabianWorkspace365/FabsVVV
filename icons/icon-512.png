@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 192 192">
+  <rect width="192" height="192" fill="#1A3A47"/>
+  <circle cx="96" cy="96" r="88" fill="#1A3A47" stroke="#F9E04B" stroke-width="4" stroke-dasharray="8 4"/>
+  <circle cx="96" cy="96" r="76" fill="rgba(249,224,75,0.08)"/>
+  <!-- Palm tree simplified -->
+  <rect x="93" y="110" width="6" height="40" fill="#B5E8D0" rx="3"/>
+  <ellipse cx="96" cy="108" rx="22" ry="14" fill="#B5E8D0" opacity="0.9"/>
+  <ellipse cx="74" cy="104" rx="18" ry="10" fill="#B5E8D0" opacity="0.7" transform="rotate(-20 74 104)"/>
+  <ellipse cx="118" cy="104" rx="18" ry="10" fill="#B5E8D0" opacity="0.7" transform="rotate(20 118 104)"/>
+  <!-- Cocktail glass -->
+  <polygon points="96,52 116,82 76,82" fill="#F9E04B" opacity="0.9"/>
+  <rect x="92" y="82" width="8" height="18" fill="#F9E04B" opacity="0.9"/>
+  <rect x="82" y="99" width="28" height="4" fill="#F9E04B" opacity="0.9" rx="2"/>
+  <!-- straw -->
+  <line x1="106" y1="52" x2="112" y2="80" stroke="#F4A7B9" stroke-width="3" stroke-linecap="round"/>
+  <!-- Text -->
+  <text x="96" y="148" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="bold" fill="#F9E04B" letter-spacing="2">OMMEN</text>
+  <text x="96" y="163" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#7EC8E3" letter-spacing="1">2025</text>
+</svg>

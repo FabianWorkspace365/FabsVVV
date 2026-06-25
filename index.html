@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F9E04B">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Vakantie Ommen">
+  <title>Vakantie Ommen 2025</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --yellow:   #F9E04B;
+      --yellow-d: #D4B800;
+      --sky:      #7EC8E3;
+      --sky-d:    #4FA8C7;
+      --sky-pale: #D6F0F8;
+      --rose:     #F4A7B9;
+      --rose-d:   #D97A93;
+      --mint:     #B5E8D0;
+      --cream:    #FFF8E7;
+      --sand:     #F5E6C8;
+      --brown:    #5C3A1E;
+      --ink:      #2B1A0E;
+      --white:    #FFFFFF;
+      --shadow:   rgba(43,26,14,0.15);
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── RETRO TEXTURE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(126,200,227,0.08) 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, rgba(244,167,185,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 60% 80%, rgba(249,224,75,0.06) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      background: linear-gradient(160deg, #2B5F75 0%, #1A3A47 60%, #0D2530 100%);
+      padding: 2rem 1.5rem 3rem;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero-bg-art {
+      position: absolute;
+      inset: 0;
+      opacity: 0.12;
+      background-image:
+        radial-gradient(ellipse 120px 180px at 15% 80%, #F9E04B 0%, transparent 70%),
+        radial-gradient(ellipse 80px 120px at 85% 70%, #F4A7B9 0%, transparent 70%),
+        radial-gradient(ellipse 200px 200px at 50% 110%, #7EC8E3 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Cocktail glass SVG background - right side */
+    .hero-deco {
+      position: absolute;
+      right: -10px;
+      bottom: -5px;
+      width: 140px;
+      height: 200px;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+
+    /* Hat SVG background - left side */
+    .hero-hat {
+      position: absolute;
+      left: -15px;
+      bottom: 0px;
+      width: 120px;
+      height: 100px;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 0.6rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.05;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-title span {
+      color: var(--yellow);
+      font-style: italic;
+    }
+
+    .hero-subtitle {
+      font-size: 0.85rem;
+      color: var(--sky);
+      margin-top: 0.5rem;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-dates {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.2rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(249,224,75,0.3);
+      border-radius: 999px;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--yellow);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── FILTER BAR ── */
+    .filter-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 2px solid var(--sand);
+      padding: 0.75rem 1rem;
+    }
+
+    .filter-scroll {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .filter-scroll::-webkit-scrollbar { display: none; }
+
+    .filter-btn {
+      flex-shrink: 0;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .filter-btn.all    { background: var(--brown); color: var(--yellow); border-color: var(--brown); }
+    .filter-btn.uitje  { background: var(--sky-pale); color: var(--sky-d); border-color: var(--sky); }
+    .filter-btn.actief { background: #D4F5E2; color: #2A7A52; border-color: var(--mint); }
+    .filter-btn.rust   { background: var(--sand); color: var(--brown); border-color: var(--yellow-d); }
+    .filter-btn.du     { background: #FFE8EE; color: var(--rose-d); border-color: var(--rose); }
+    .filter-btn.log    { background: #FFF3CC; color: #8A6200; border-color: var(--yellow); }
+
+    .filter-btn:not(.active) {
+      background: var(--white);
+      color: var(--brown);
+      border-color: var(--sand);
+    }
+
+    /* ── WEEK HEADER ── */
+    .week-header {
+      margin: 1.5rem 1rem 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .week-header-line {
+      flex: 1;
+      height: 1px;
+      background: var(--sand);
+    }
+
+    .week-header-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--brown);
+      opacity: 0.6;
+      white-space: nowrap;
+    }
+
+    /* ── DAY CARD ── */
+    .day-card {
+      margin: 0 1rem 0.75rem;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px var(--shadow);
+      background: var(--white);
+      border: 1.5px solid var(--sand);
+      transition: box-shadow 0.2s;
+    }
+
+    .day-card:active { box-shadow: 0 1px 4px var(--shadow); }
+
+    .day-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+    }
+
+    /* Type-specific left border accent */
+    .day-card.uitje   .day-card-header { border-left: 4px solid var(--sky); }
+    .day-card.actief  .day-card-header { border-left: 4px solid var(--mint); }
+    .day-card.rust    .day-card-header { border-left: 4px solid var(--yellow); }
+    .day-card.duitsland .day-card-header { border-left: 4px solid var(--rose); }
+    .day-card.logistiek .day-card-header { border-left: 4px solid var(--sand); }
+
+    .day-number {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      line-height: 1;
+      min-width: 28px;
+      text-align: center;
+    }
+
+    .day-card.uitje    .day-number { color: var(--sky-d); }
+    .day-card.actief   .day-number { color: #2A7A52; }
+    .day-card.rust     .day-number { color: var(--yellow-d); }
+    .day-card.duitsland .day-number { color: var(--rose-d); }
+    .day-card.logistiek .day-number { color: #8A6200; }
+
+    .day-meta {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .day-date {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brown);
+      opacity: 0.5;
+    }
+
+    .day-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .day-badge {
+      font-size: 0.6rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      flex-shrink: 0;
+    }
+
+    .day-card.uitje    .day-badge { background: var(--sky-pale); color: var(--sky-d); }
+    .day-card.actief   .day-badge { background: #D4F5E2; color: #2A7A52; }
+    .day-card.rust     .day-badge { background: #FFF8D0; color: var(--yellow-d); }
+    .day-card.duitsland .day-badge { background: #FFE8EE; color: var(--rose-d); }
+    .day-card.logistiek .day-badge { background: #FFF3CC; color: #8A6200; }
+
+    .day-chevron {
+      font-size: 1rem;
+      color: var(--brown);
+      opacity: 0.3;
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+
+    .day-card.open .day-chevron { transform: rotate(180deg); opacity: 0.6; }
+
+    /* ── DAY BODY ── */
+    .day-body {
+      display: none;
+      border-top: 1px dashed var(--sand);
+      padding: 0.75rem 1rem 1rem;
+    }
+
+    .day-card.open .day-body { display: block; }
+
+    .activity-row {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #F5F0E8;
+      align-items: flex-start;
+    }
+
+    .activity-row:last-of-type { border-bottom: none; }
+
+    .act-time {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--brown);
+      opacity: 0.45;
+      min-width: 48px;
+      padding-top: 1px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .act-text { flex: 1; }
+
+    .act-main {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    .act-note {
+      font-size: 0.72rem;
+      color: var(--brown);
+      opacity: 0.6;
+      margin-top: 0.1rem;
+      font-style: italic;
+    }
+
+    /* ── ACTION BUTTONS ── */
+    .day-actions {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.9rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--sand);
+    }
+
+    .btn-maps {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      background: var(--sky);
+      color: var(--ink);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-maps:hover { background: var(--sky-d); color: var(--white); }
+
+    .btn-info {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      background: var(--yellow);
+      color: var(--ink);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-info:hover { background: var(--yellow-d); }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: 2rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      background: linear-gradient(160deg, #1A3A47 0%, #0D2530 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-palm {
+      position: absolute;
+      bottom: 0;
+      right: -10px;
+      font-size: 5rem;
+      opacity: 0.08;
+      line-height: 1;
+    }
+
+    .footer-cocktail {
+      position: absolute;
+      bottom: 0;
+      left: -10px;
+      font-size: 4rem;
+      opacity: 0.1;
+      line-height: 1;
+    }
+
+    .footer-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--yellow);
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-sub {
+      font-size: 0.7rem;
+      color: var(--sky);
+      margin-top: 0.3rem;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── AI MODAL ── */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(13,37,48,0.7);
+      z-index: 200;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .modal-backdrop.open { display: flex; }
+
+    .modal-sheet {
+      background: var(--cream);
+      border-radius: 24px 24px 0 0;
+      padding: 1.5rem 1.25rem 2.5rem;
+      width: 100%;
+      max-width: 480px;
+      max-height: 75vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .modal-handle {
+      width: 40px;
+      height: 4px;
+      background: var(--sand);
+      border-radius: 99px;
+      margin: 0 auto 1.25rem;
+    }
+
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+
+    .modal-subtitle {
+      font-size: 0.75rem;
+      color: var(--brown);
+      opacity: 0.6;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .modal-body {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--ink);
+    }
+
+    .modal-loading {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--brown);
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--sand);
+      border-top-color: var(--sky-d);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: var(--sand);
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brown);
+    }
+
+    /* ── LOGO / STAMP ── */
+    .stamp {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── EMPTY STATE ── */
+    .empty {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--brown);
+      opacity: 0.5;
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+
+    /* ── EDIT OVERLAY ── */
+    .edit-fab {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--rose);
+      color: var(--ink);
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(217,122,147,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 150;
+      transition: transform 0.2s;
+    }
+
+    .edit-fab:active { transform: scale(0.93); }
+
+    .edit-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(13,37,48,0.7);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .edit-modal.open { display: flex; }
+
+    .edit-sheet {
+      background: var(--cream);
+      border-radius: 20px;
+      padding: 1.5rem;
+      width: 100%;
+      max-width: 480px;
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+
+    .edit-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .edit-day-row {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--sand);
+    }
+
+    .edit-day-name {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 0.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .edit-input {
+      width: 100%;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.85rem;
+      padding: 0.45rem 0.7rem;
+      border-radius: 8px;
+      border: 1.5px solid var(--sand);
+      background: var(--white);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .edit-input:focus { border-color: var(--sky-d); }
+
+    .edit-note-input {
+      width: 100%;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.78rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 8px;
+      border: 1.5px solid var(--sand);
+      background: var(--white);
+      color: var(--brown);
+      margin-top: 0.3rem;
+      outline: none;
+      resize: vertical;
+      min-height: 60px;
+    }
+
+    .edit-note-input:focus { border-color: var(--sky-d); }
+
+    .btn-save {
+      width: 100%;
+      margin-top: 1.25rem;
+      padding: 0.75rem;
+      border-radius: 12px;
+      background: var(--yellow);
+      color: var(--ink);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-cancel {
+      width: 100%;
+      margin-top: 0.5rem;
+      padding: 0.6rem;
+      border-radius: 12px;
+      background: var(--sand);
+      color: var(--brown);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .spinner { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg-art"></div>
+
+    <!-- Retro cocktail SVG (right) -->
+    <svg class="hero-deco" viewBox="0 0 100 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="50,10 80,70 20,70" fill="#F9E04B" opacity="0.9"/>
+      <rect x="45" y="70" width="10" height="50" fill="#F9E04B" opacity="0.9"/>
+      <rect x="30" y="118" width="40" height="6" rx="3" fill="#F9E04B" opacity="0.9"/>
+      <ellipse cx="50" cy="70" rx="30" ry="8" fill="#7EC8E3" opacity="0.6"/>
+      <!-- straw -->
+      <line x1="60" y1="10" x2="68" y2="68" stroke="#F4A7B9" stroke-width="3" stroke-linecap="round"/>
+      <!-- lime slices -->
+      <circle cx="35" cy="90" r="8" fill="#B5E8D0" opacity="0.8"/>
+      <circle cx="65" cy="95" r="6" fill="#B5E8D0" opacity="0.6"/>
+    </svg>
+
+    <!-- Retro hat SVG (left) -->
+    <svg class="hero-hat" viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="60" cy="70" rx="58" ry="16" fill="#F5E6C8" opacity="0.9"/>
+      <path d="M20 70 Q30 30 60 25 Q90 30 100 70 Z" fill="#F5E6C8" opacity="0.9"/>
+      <ellipse cx="60" cy="70" rx="58" ry="16" fill="none" stroke="#D4B800" stroke-width="2" opacity="0.5"/>
+      <!-- hat band -->
+      <path d="M22 66 Q40 55 60 53 Q80 55 98 66" stroke="#F4A7B9" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
+    </svg>
+
+    <!-- Stamp logo -->
+    <div class="stamp">
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="38" stroke="#F9E04B" stroke-width="2" stroke-dasharray="4 2"/>
+        <circle cx="40" cy="40" r="32" fill="rgba(249,224,75,0.1)"/>
+        <text x="40" y="36" text-anchor="middle" font-family="Playfair Display, serif" font-size="9" font-weight="700" fill="#F9E04B" letter-spacing="2">VAKANTIE</text>
+        <text x="40" y="50" text-anchor="middle" font-family="Playfair Display, serif" font-size="16" font-weight="900" font-style="italic" fill="#F9E04B">2025</text>
+        <text x="40" y="62" text-anchor="middle" font-family="Nunito, sans-serif" font-size="7" font-weight="700" fill="#7EC8E3" letter-spacing="1.5">OMMEN ✦</text>
+      </svg>
+    </div>
+
+    <div class="hero-eyebrow">🌴 Camping Ommerland</div>
+    <h1 class="hero-title">Zomer<span>vakantie</span></h1>
+    <p class="hero-subtitle">Ommen · Vechtdal · Duitsland</p>
+    <div class="hero-dates">📅 4 juli — 20 juli 2025</div>
+  </header>
+
+  <!-- FILTER BAR -->
+  <div class="filter-wrap">
+    <div class="filter-scroll" id="filterBar">
+      <button class="filter-btn all active"   onclick="setFilter('alle','this')">Alle dagen</button>
+      <button class="filter-btn uitje"        onclick="setFilter('uitje','this')">🗺 Dagjes NL</button>
+      <button class="filter-btn du"           onclick="setFilter('duitsland','this')">🇩🇪 Duitsland</button>
+      <button class="filter-btn actief"       onclick="setFilter('actief','this')">🛶 Actief</button>
+      <button class="filter-btn rust"         onclick="setFilter('rust','this')">☀️ Rustdag</button>
+      <button class="filter-btn log"          onclick="setFilter('logistiek','this')">🚗 Logistiek</button>
+    </div>
+  </div>
+
+  <!-- PROGRAMMA -->
+  <main id="programma"></main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-palm">🌴</div>
+    <div class="footer-cocktail">🍹</div>
+    <p class="footer-text">"Vakantie begint bij de eerste zonnestraal."</p>
+    <p class="footer-sub">CAMPING OMMERLAND · VECHTDAL · OVERIJSSEL</p>
+  </footer>
+
+  <!-- AI INFO MODAL -->
+  <div class="modal-backdrop" id="infoModal" onclick="closeModal(event)">
+    <div class="modal-sheet" id="modalSheet">
+      <div class="modal-handle"></div>
+      <button class="modal-close" onclick="closeInfoModal()">✕</button>
+      <p class="modal-subtitle" id="modalSubtitle">OVER DEZE BESTEMMING</p>
+      <h2 class="modal-title" id="modalTitle">Laden...</h2>
+      <div class="modal-body" id="modalBody">
+        <div class="modal-loading"><div class="spinner"></div> Even ophalen...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDIT FAB -->
+  <button class="edit-fab" onclick="openEdit()" title="Programma aanpassen">✏️</button>
+
+  <!-- EDIT MODAL -->
+  <div class="edit-modal" id="editModal">
+    <div class="edit-sheet">
+      <h2 class="edit-title">✏️ Programma aanpassen</h2>
+      <div id="editList"></div>
+      <button class="btn-save" onclick="saveEdits()">Opslaan</button>
+      <button class="btn-cancel" onclick="closeEdit()">Annuleren</button>
+    </div>
+  </div>
+
+  <script>
+  // ─────────────────────────────────────────────
+  // DATA
+  // ─────────────────────────────────────────────
+  const PROGRAM = [
+    {
+      id: 'dag1', date: 'Vr 4 juli', type: 'logistiek', badge: 'Logistiek',
+      title: 'Aankomst & opbouwen',
+      activities: [
+        { time: 'ochtend', text: 'Vertrek vanuit huis, caravan koppelen' },
+        { time: 'middag',  text: 'Aankomst Camping Ommerland, inschrijven en caravan opstellen' },
+        { time: 'middag',  text: 'Camping verkennen — zwembad, klimbos, voorzieningen' },
+        { time: 'avond',   text: 'Eerste avond genieten — lekker barbecuen' },
+      ]
+    },
+    {
+      id: 'dag2', date: 'Za 5 juli', type: 'uitje', badge: 'Dagje NL',
+      title: 'Ommen centrum verkennen',
+      location: 'Ommen, Overijssel',
+      activities: [
+        { time: 'ochtend', text: 'Rustig ontbijt op de camping' },
+        { time: '10:00',   text: 'Wandeling naar centrum Ommen langs de Vecht (~2 km)' },
+        { time: '10:30',   text: 'Zaterdagmarkt — verse producten en lokale lekkernijen', note: 'Markt: do & za 08:00–13:00' },
+        { time: 'middag',  text: 'Nationaal Tinnen Figurenmuseum in het oude stadhuis (Markt 1)' },
+        { time: 'middag',  text: 'Lunch op het terras aan het water' },
+        { time: '15:00',   text: 'Boetiekjes en historische straatjes' },
+        { time: 'avond',   text: 'Terug naar camping', note: 'Facultatief: uit eten in Ommen' },
+      ]
+    },
+    {
+      id: 'dag3', date: 'Zo 6 juli', type: 'rust', badge: 'Rustdag',
+      title: 'Zwemmen & chillen op camping',
+      activities: [
+        { time: 'ochtend', text: 'Uitslapen, ruim ontbijt' },
+        { time: 'middag',  text: 'Dag in het waterpark — glijbanen en HurriCone', note: 'Op camping Ommerland' },
+        { time: 'middag',  text: 'Klimbos voor de avonturiers (tot 10 meter hoogte)' },
+        { time: 'avond',   text: 'Barbecue op de camping' },
+      ]
+    },
+    {
+      id: 'dag4', date: 'Ma 7 juli', type: 'duitsland', badge: 'Duitsland 🇩🇪',
+      title: 'Tecklenburg — Balkon van het Münsterland',
+      location: 'Tecklenburg, Duitsland',
+      activities: [
+        { time: '09:15',  text: 'Vertrek richting Tecklenburg', note: '~1 uur rijden via A31/A30' },
+        { time: '10:15',  text: 'Parkeren bij Ledder, te voet de Altstadt in' },
+        { time: '10:30',  text: 'Slenteren door de Schlossstraße — vakwerkhuizen uit de 16e–17e eeuw', note: 'Zoek de 400-jaar-oude boom op het Marktplatz' },
+        { time: '11:30',  text: 'Burchtruïne — het grootste openluchttheater van Duitsland, met uitzicht over het Münsterland' },
+        { time: '13:00',  text: 'Lunch op het Marktplatz', note: 'Flammkuchen + Apfelstrudel aanrader' },
+        { time: '14:15',  text: 'Hexenpfad — kort wandelpad door rotsformaties met heksenverhalen', note: 'Goed voor kinderen' },
+        { time: '15:30',  text: 'Poppenmuseum of nog wat winkelen en een ijsje' },
+        { time: '16:30',  text: 'Terug naar Ommen', note: 'Facultatief: uit eten in Tecklenburg' },
+      ]
+    },
+    {
+      id: 'dag5', date: 'Di 8 juli', type: 'rust', badge: 'Rustdag',
+      title: 'Rustdag & Vecht wandelen',
+      activities: [
+        { time: 'ochtend', text: 'Rustdag — lekker niets hoeven' },
+        { time: 'middag',  text: 'Korte wandeling langs de Vecht vanuit de camping' },
+        { time: 'middag',  text: 'Zwemmen of picknicken in het bos' },
+        { time: 'avond',   text: 'Avond vrij', note: 'Facultatief: restaurant in Ommen' },
+      ]
+    },
+    {
+      id: 'dag6', date: 'Wo 9 juli', type: 'actief', badge: 'Actief 🛶',
+      title: 'Kanotocht op de Vecht & Regge',
+      location: 'Rederij Peters, Ommen',
+      activities: [
+        { time: '09:30',  text: 'Vertrek naar Rederij Peters (Zwolseweg 4, Ommen)' },
+        { time: '10:00',  text: 'Kanotocht — afzaktocht Regge/Vecht (~12 km) of 2–6 uur vrij varen', note: 'Reserveer vooraf! Tel. Rederij Peters' },
+        { time: 'middag', text: 'Picknick langs de oever, frisse duik in de Vecht' },
+        { time: '15:00',  text: 'Terug, rust op de camping' },
+        { time: 'avond',  text: 'Vroeg avondeten — moe maar blij' },
+      ]
+    },
+    {
+      id: 'dag7', date: 'Do 10 juli', type: 'uitje', badge: 'Dagje NL',
+      title: 'Zwolle — Hanzestad aan de IJssel',
+      location: 'Zwolle',
+      activities: [
+        { time: '09:30',  text: 'Vertrek naar Zwolle', note: '~35 min rijden' },
+        { time: '10:00',  text: 'Historische wallen en binnenstad verkennen' },
+        { time: '10:30',  text: 'Museum De Fundatie — bijzonder museum met bolronde dakinstallatie' },
+        { time: '12:30',  text: 'Lunch op een terras — Melkmarkt of Grote Kerkplein' },
+        { time: '14:00',  text: 'Winkelen in het centrum van Zwolle' },
+        { time: '16:30',  text: 'Terug naar camping', note: 'Facultatief: uit eten in Zwolle' },
+      ]
+    },
+    {
+      id: 'dag8', date: 'Vr 11 juli', type: 'rust', badge: 'Rustdag',
+      title: 'Rustdag — bos & waterpark',
+      activities: [
+        { time: 'ochtend', text: 'Uitslapen, broodjes van de campingsupermarkt' },
+        { time: 'middag',  text: 'Fietsen door de bossen rond de Besthmenerberg' },
+        { time: 'middag',  text: 'Waterpark op de camping — glijbanen' },
+        { time: 'avond',   text: 'Spellen, gezellige campingavond' },
+      ]
+    },
+    {
+      id: 'dag9', date: 'Za 12 juli', type: 'duitsland', badge: 'Duitsland 🇩🇪',
+      title: 'Bad Bentheim — middeleeuws kasteel',
+      location: 'Bad Bentheim, Duitsland',
+      activities: [
+        { time: '09:30',  text: 'Vertrek naar Bad Bentheim', note: '~50 min rijden' },
+        { time: '10:15',  text: 'Burg Bentheim bezoeken — indrukwekkend kasteel op de rots' },
+        { time: '12:00',  text: 'Lunch in het centrum, knusse winkelstraatjes' },
+        { time: '13:30',  text: 'Winkelen en slenteren door het historische centrum' },
+        { time: '14:30',  text: 'Bentheimer Mineraltherme — wellness & ontspanning', note: 'Facultatief — Am Bade 1' },
+        { time: '16:30',  text: 'Terug naar camping', note: 'Facultatief: uit eten in Bad Bentheim' },
+      ]
+    },
+    {
+      id: 'dag10', date: 'Zo 13 juli', type: 'rust', badge: 'Rustdag',
+      title: 'Sahara van Ommen & natuur',
+      activities: [
+        { time: 'ochtend', text: 'Rustig ontbijt' },
+        { time: 'middag',  text: 'Wandeling naar de Sahara van Ommen — unieke zandverstuiving', note: 'Te voet of ponyritje via camping' },
+        { time: 'middag',  text: 'Zwemmen of chillen bij het zwembad' },
+        { time: 'avond',   text: 'Rustige campingavond' },
+      ]
+    },
+    {
+      id: 'dag11', date: 'Ma 14 juli', type: 'uitje', badge: 'Dagje NL',
+      title: 'Deventer — oudste stenen stad',
+      location: 'Deventer',
+      activities: [
+        { time: '09:30',  text: 'Vertrek naar Deventer', note: '~50 min rijden' },
+        { time: '10:15',  text: 'Historisch centrum: de Brink en het Bergkwartier' },
+        { time: '11:00',  text: 'De Proosdij bekijken — oudste stenen woonhuis van Nederland (ca. 1130)' },
+        { time: '12:00',  text: 'Winkelen en lunchen in het centrum' },
+        { time: '14:00',  text: 'Wandelen langs de IJssel' },
+        { time: '16:00',  text: 'Terug naar camping', note: 'Facultatief: uit eten in Deventer' },
+      ]
+    },
+    {
+      id: 'dag12', date: 'Di 15 juli', type: 'actief', badge: 'Actief 🪜',
+      title: 'Klimbos, paintball & waterpark',
+      activities: [
+        { time: 'ochtend', text: 'Ochtend vrij op de camping' },
+        { time: '10:00',   text: 'Klimbos op de camping — klimavontuur op 4, 7 of 10 meter' },
+        { time: '12:00',   text: 'Lunch op de camping' },
+        { time: '13:30',   text: 'Paintball of ponyritje naar de Sahara' },
+        { time: '15:00',   text: 'Waterpark — HurriCone glijbaan en vrije val' },
+        { time: 'avond',   text: 'Barbecue' },
+      ]
+    },
+    {
+      id: 'dag13', date: 'Wo 16 juli', type: 'duitsland', badge: 'Duitsland 🇩🇪',
+      title: 'Nordhorn — waterstad net over de grens',
+      location: 'Nordhorn, Duitsland',
+      activities: [
+        { time: '09:30',  text: 'Vertrek naar Nordhorn', note: '~45 min rijden' },
+        { time: '10:15',  text: 'Wandeling door het centrum langs de Vecht en kanalen' },
+        { time: '11:00',  text: 'Tierpark Nordhorn — leuke dierentuin voor het hele gezin' },
+        { time: '13:00',  text: 'Lunch in Nordhorn centrum' },
+        { time: '14:00',  text: 'Winkelen of Vechtesee — waterfietsen op het meer' },
+        { time: '16:30',  text: 'Terug naar camping', note: 'Facultatief: uit eten in Nordhorn' },
+      ]
+    },
+    {
+      id: 'dag14', date: 'Do 17 juli', type: 'uitje', badge: 'Dagje NL',
+      title: 'Ootmarsum — kunstzinnig Twents stadje',
+      location: 'Ootmarsum',
+      activities: [
+        { time: 'ochtend', text: 'Rustige ochtend' },
+        { time: '11:00',   text: 'Vertrek naar Ootmarsum', note: '~40 min rijden' },
+        { time: '11:45',   text: 'Openluchtmuseum Ootmarsum — sfeer van vroeger' },
+        { time: '13:00',   text: 'Lunch in het centrum, kunstgaleries en boetiekjes' },
+        { time: '14:30',   text: 'Slenteren door middeleeuwse straatjes met vakwerkhuizen' },
+        { time: '16:00',   text: 'Terug naar camping' },
+      ]
+    },
+    {
+      id: 'dag15', date: 'Vr 18 juli', type: 'rust', badge: 'Rustdag',
+      title: 'Laatste rustdag — kampeerplezier',
+      activities: [
+        { time: 'ochtend', text: 'Niets móeten — uitslapen' },
+        { time: 'middag',  text: 'Fietsen door het Vechtdal of langs de Vecht' },
+        { time: 'middag',  text: 'Zwemmen, kampvuur of spellen' },
+        { time: 'avond',   text: 'Laatste barbecue of uit eten als afsluiting', note: 'Facultatief: mooi restaurant' },
+      ]
+    },
+    {
+      id: 'dag16', date: 'Za 19 juli', type: 'rust', badge: 'Rustdag',
+      title: 'Vrije dag — rustige afronding',
+      activities: [
+        { time: 'ochtend', text: 'Uitslapen, voorsorteren' },
+        { time: 'middag',  text: 'Laatste bezoek aan Ommen of waterpark' },
+        { time: 'middag',  text: 'Caravan alvast licht opruimen' },
+        { time: 'avond',   text: 'Vroeg naar bed' },
+      ]
+    },
+    {
+      id: 'dag17', date: 'Zo 20 juli', type: 'logistiek', badge: 'Logistiek',
+      title: 'Afbouwen & vertrek naar huis',
+      activities: [
+        { time: 'ochtend', text: 'Vroeg opstaan, caravan leegmaken en schoonmaken' },
+        { time: '10:00',   text: 'Uitchecken bij de receptie' },
+        { time: '10:30',   text: 'Caravan koppelen en vertrek' },
+        { time: 'middag',  text: 'Aankomst thuis — herinneringen naleven 🌴' },
+      ]
+    },
+  ];
+
+  const WEEK_HEADERS = { 0: 'Week 1 — Aankomst & aftrap', 3: 'Week 2 — Actieve ontdekkingen', 10: 'Week 3 — Rustig afronden' };
+
+  // Load saved customisations from localStorage
+  let customs = {};
+  try { customs = JSON.parse(localStorage.getItem('vakantie_customs') || '{}'); } catch(e){}
+
+  let currentFilter = 'alle';
+
+  // ─────────────────────────────────────────────
+  // RENDER
+  // ─────────────────────────────────────────────
+  function render() {
+    const container = document.getElementById('programma');
+    container.innerHTML = '';
+
+    let shown = 0;
+    PROGRAM.forEach((dag, i) => {
+      if (currentFilter !== 'alle' && dag.type !== currentFilter) return;
+
+      if (WEEK_HEADERS[i] && currentFilter === 'alle') {
+        const wh = document.createElement('div');
+        wh.className = 'week-header';
+        wh.innerHTML = `<div class="week-header-line"></div><span class="week-header-label">${WEEK_HEADERS[i]}</span><div class="week-header-line"></div>`;
+        container.appendChild(wh);
+      }
+
+      const custom = customs[dag.id] || {};
+      const title = custom.title || dag.title;
+      const note  = custom.note  || '';
+
+      const card = document.createElement('div');
+      card.className = `day-card ${dag.type}`;
+      card.id = `card-${dag.id}`;
+
+      const dayNum = i + 1;
+
+      card.innerHTML = `
+        <div class="day-card-header" onclick="toggleCard('${dag.id}')">
+          <div class="day-number">${dayNum}</div>
+          <div class="day-meta">
+            <div class="day-date">${dag.date}</div>
+            <div class="day-title">${title}</div>
+          </div>
+          <span class="day-badge">${dag.badge}</span>
+          <span class="day-chevron">▾</span>
+        </div>
+        <div class="day-body">
+          ${dag.activities.map(a => `
+            <div class="activity-row">
+              <span class="act-time">${a.time}</span>
+              <div class="act-text">
+                <div class="act-main">${a.text}</div>
+                ${a.note ? `<div class="act-note">${a.note}</div>` : ''}
+              </div>
+            </div>
+          `).join('')}
+          ${note ? `<div class="act-note" style="padding:0.5rem 0 0; color: var(--sky-d); font-style:normal; font-weight:600;">📝 ${note}</div>` : ''}
+          ${renderActions(dag)}
+        </div>
+      `;
+
+      container.appendChild(card);
+      shown++;
+    });
+
+    if (shown === 0) {
+      container.innerHTML = '<p class="empty">Geen dagen gevonden voor dit filter.</p>';
+    }
+  }
+
+  function renderActions(dag) {
+    if (!dag.location) return '';
+    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(dag.location)}`;
+    return `
+      <div class="day-actions">
+        <a href="${mapsUrl}" target="_blank" class="btn-maps">🗺 Route naar ${dag.location.split(',')[0]}</a>
+        <button class="btn-info" onclick="openInfo('${dag.id}', event)">✨ Meer info</button>
+      </div>
+    `;
+  }
+
+  // ─────────────────────────────────────────────
+  // TOGGLE CARD
+  // ─────────────────────────────────────────────
+  function toggleCard(id) {
+    const card = document.getElementById(`card-${id}`);
+    card.classList.toggle('open');
+  }
+
+  // ─────────────────────────────────────────────
+  // FILTER
+  // ─────────────────────────────────────────────
+  function setFilter(type, el) {
+    currentFilter = type;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    // find clicked button
+    event.target.classList.add('active');
+    render();
+  }
+
+  // ─────────────────────────────────────────────
+  // AI INFO MODAL
+  // ─────────────────────────────────────────────
+  async function openInfo(dagId, evt) {
+    evt.stopPropagation();
+    const dag = PROGRAM.find(d => d.id === dagId);
+    if (!dag || !dag.location) return;
+
+    document.getElementById('modalTitle').textContent = dag.location.split(',')[0];
+    document.getElementById('modalSubtitle').textContent = 'OVER DEZE BESTEMMING';
+    document.getElementById('modalBody').innerHTML = '<div class="modal-loading"><div class="spinner"></div> Info ophalen via AI…</div>';
+    document.getElementById('infoModal').classList.add('open');
+
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-6',
+          max_tokens: 1000,
+          messages: [{
+            role: 'user',
+            content: `Geef in maximaal 180 woorden praktische reisinformatie over ${dag.location} als dagbestemming voor een gezin op vakantie vanuit Ommen (Overijssel). Noem: 1) waarom het leuk is voor het gezin, 2) 3 concrete tips of highlights, 3) één praktisch weetje (parkeren, openingstijden of prijs). Schrijf in lopende, vriendelijke Nederlandse tekst. Geen opsommingstekens.`
+          }]
+        })
+      });
+      const data = await res.json();
+      const text = data.content?.[0]?.text || 'Kon geen informatie ophalen.';
+      document.getElementById('modalBody').innerHTML = `<p class="modal-body">${text.replace(/\n/g,'<br>')}</p>`;
+    } catch(e) {
+      document.getElementById('modalBody').innerHTML = '<p style="color:var(--rose-d)">Kon geen verbinding maken. Probeer het opnieuw.</p>';
+    }
+  }
+
+  function closeInfoModal() {
+    document.getElementById('infoModal').classList.remove('open');
+  }
+
+  function closeModal(e) {
+    if (e.target === document.getElementById('infoModal')) closeInfoModal();
+  }
+
+  // ─────────────────────────────────────────────
+  // EDIT MODAL
+  // ─────────────────────────────────────────────
+  function openEdit() {
+    const list = document.getElementById('editList');
+    list.innerHTML = PROGRAM.map(dag => {
+      const custom = customs[dag.id] || {};
+      return `
+        <div class="edit-day-row">
+          <div class="edit-day-name">${dag.date}</div>
+          <input class="edit-input" id="edit-title-${dag.id}" value="${custom.title || dag.title}" placeholder="Dagomschrijving">
+          <textarea class="edit-note-input" id="edit-note-${dag.id}" placeholder="Eigen notitie (bijv. reservering, aandachtspunt…)">${custom.note || ''}</textarea>
+        </div>
+      `;
+    }).join('');
+    document.getElementById('editModal').classList.add('open');
+  }
+
+  function saveEdits() {
+    PROGRAM.forEach(dag => {
+      const titleEl = document.getElementById(`edit-title-${dag.id}`);
+      const noteEl  = document.getElementById(`edit-note-${dag.id}`);
+      if (titleEl) {
+        customs[dag.id] = {
+          title: titleEl.value,
+          note:  noteEl ? noteEl.value : ''
+        };
+      }
+    });
+    try { localStorage.setItem('vakantie_customs', JSON.stringify(customs)); } catch(e){}
+    closeEdit();
+    render();
+  }
+
+  function closeEdit() {
+    document.getElementById('editModal').classList.remove('open');
+  }
+
+  // ─────────────────────────────────────────────
+  // SERVICE WORKER REGISTRATION
+  // ─────────────────────────────────────────────
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    });
+  }
+
+  // ─────────────────────────────────────────────
+  // INIT
+  // ─────────────────────────────────────────────
+  render();
+  </script>
+</body>
+</html>
