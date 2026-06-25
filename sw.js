@@ -1,12 +1,12 @@
-const CACHE_NAME = 'vakantie-ommen-v1';
+const CACHE_NAME = 'vakantie-ommen-v2';
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
+  './index.html',
+  './manifest.json',
+  './icons/icon-192.png',
+  './icons/icon-512.png',
   'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700&display=swap'
 ];
 
-// Install: cache core assets
 self.addEventListener('install', evt => {
   evt.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
@@ -16,7 +16,6 @@ self.addEventListener('install', evt => {
   self.skipWaiting();
 });
 
-// Activate: clean old caches
 self.addEventListener('activate', evt => {
   evt.waitUntil(
     caches.keys().then(keys =>
@@ -26,14 +25,11 @@ self.addEventListener('activate', evt => {
   self.clients.claim();
 });
 
-// Fetch: cache-first for assets, network-first for API
 self.addEventListener('fetch', evt => {
   const url = new URL(evt.request.url);
 
-  // Always fetch Anthropic API from network
   if (url.hostname === 'api.anthropic.com') return;
 
-  // Cache-first for everything else
   evt.respondWith(
     caches.match(evt.request).then(cached => {
       if (cached) return cached;
@@ -43,7 +39,7 @@ self.addEventListener('fetch', evt => {
           caches.open(CACHE_NAME).then(cache => cache.put(evt.request, clone));
         }
         return response;
-      }).catch(() => caches.match('/index.html'));
+      }).catch(() => caches.match('./index.html'));
     })
   );
 });
