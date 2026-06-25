@@ -1,4 +1,4 @@
-# 🌴 Vakantie Ommen 2025 — PWA
+# 🌴 Vakantie Ommen 2026 — PWA
 
 Retro vakantie-app voor de zomervakantie op Camping Ommerland, Ommen.
 
