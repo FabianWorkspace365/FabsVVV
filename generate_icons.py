@@ -23,7 +23,7 @@ svg_192 = '''<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" vi
   <line x1="106" y1="52" x2="112" y2="80" stroke="#F4A7B9" stroke-width="3" stroke-linecap="round"/>
   <!-- Text -->
   <text x="96" y="148" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="bold" fill="#F9E04B" letter-spacing="2">OMMEN</text>
-  <text x="96" y="163" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#7EC8E3" letter-spacing="1">2025</text>
+  <text x="96" y="163" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#7EC8E3" letter-spacing="1">2026</text>
 </svg>'''
 
 svg_512 = svg_192.replace('width="192" height="192" viewBox="0 0 192 192"',
